@@ -136,6 +136,14 @@ Building off of the plot you made in Step 6, add an aesthetic to differentiate t
 
 ```{r}
 #| label: scatterplot-with-one-categorical-variable
+ggplot(data = penguins) +
+  geom_point(aes(x = bill_length_mm,
+                 y = bill_depth_mm,
+                 color = species)) +
+  labs(x = "bill length mm",
+       y = "bill depth mm",
+       title = "penguin bill length by bill depth",
+       color = "penguin species")
 
 ```
 
@@ -145,6 +153,16 @@ Building off of the plot you made in Step 7, add the location of the penguins ( 
 
 ```{r}
 #| label: scatterplot-with-two-categorical-variables
+ggplot(data = penguins) +
+  geom_point(aes(x = bill_length_mm,
+                 y = bill_depth_mm,
+                 color = species)) +
+  labs(x = "bill length mm",
+       y = "bill depth mm",
+       title = "penguin bill length by bill depth",
+       color = "penguin species") +
+  facet_grid(. ~ island) +
+  theme_bw()
 
 ```
 
@@ -154,6 +172,8 @@ Working together as a team, use the plots you both created to address the
 following questions on Canvas:
 
 1.  Which species of penguins is represented the **least** in the `penguins` data set?
+
+Chinstrap is the least represented species in the data set.
 
 2.  Which species of penguins are found on Biscoe Island?
 
