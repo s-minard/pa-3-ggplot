@@ -93,7 +93,7 @@ data(penguins)
 
 **What variables are included in these data? What units are the variables measured in? What does each row represent?**
 
-> Insert Answer Here
+> Species, Island, Bill Length mm, Bill Depth mm, Flipper Length mm, Body Mass gm, Sex, Year data gathered. The data is measured in milimeters and grams. Each row represents one penguin. 
 
 
 
@@ -107,7 +107,11 @@ Use `ggplot2` to draw a barchart of different `species` included in the dataset.
 
 ```{r}
 #| label: barchart
-
+ggplot(data = penguins) +
+  geom_bar(aes(x = species)) +
+  labs(x = "penguin species",
+       y = "number of penguins",
+       title = "number of penguins of each species in the sample")
 ```
 
 ## Step 6: Scatterplot
@@ -116,7 +120,12 @@ Use `ggplot2` to create a scatterplot of the relationship between the bill lengt
 
 ```{r}
 #| label: scatterplot
-
+ggplot(data = penguins) +
+  geom_point(aes(x = bill_length_mm,
+                 y = bill_depth_mm)) +
+  labs(x = "bill length mm",
+       y = "bill depth mm",
+       title = "penguin bill length by bill depth")
 ```
 
 ## Step 7: Adding A Categorical Variable
